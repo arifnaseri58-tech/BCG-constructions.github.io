@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-bcg-navy: #003B73;
+  --color-bcg-charcoal: #0D1B2A;
+  --color-bcg-cream: #F4EBD0;
+  --color-bcg-accent: #EBE3C5;
+  --color-bcg-gold: #C5A059;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bcg-cream text-bcg-charcoal font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+.heading-visual {
+  @apply relative inline-block pb-2;
+}
+
+.heading-visual::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-24 h-2 bg-bcg-gold rounded-full;
+}
+
+.heading-badge {
+  @apply inline-block px-4 py-1.5 bg-bcg-navy text-bcg-gold font-bold tracking-[0.25em] uppercase text-[10px] rounded-full mb-6 shadow-sm;
+}
+
+.heading-highlight {
+  @apply relative z-10;
+}
+
+.heading-highlight::before {
+  content: '';
+  @apply absolute -inset-x-4 -inset-y-2 bg-bcg-gold/10 -z-10 rounded-lg transform -skew-x-12;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.glass-nav {
+  @apply bg-bcg-cream/90 backdrop-blur-md border-b border-bcg-navy/10 shadow-lg;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.btn-primary {
+  @apply bg-bcg-navy text-white px-6 py-3 rounded-lg font-semibold transition-all hover:bg-bcg-charcoal hover:shadow-lg active:scale-95;
+}
+
+.btn-secondary {
+  @apply border-2 border-bcg-navy text-bcg-navy px-6 py-3 rounded-lg font-semibold transition-all hover:bg-bcg-navy hover:text-white active:scale-95;
+}
